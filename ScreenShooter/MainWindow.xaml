@@ -1,0 +1,36 @@
+﻿<Window x:Class="ScreenShooter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScreenShooter"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        ShowInTaskbar="False" 
+        Topmost="True" 
+        Background="{DynamicResource WindowBackground}"
+        AllowsTransparency="True" 
+        WindowStyle="None"   
+        KeyUp="Window_KeyUp"
+        >
+    <Window.Resources>
+        <SolidColorBrush x:Key="WindowBackground" 
+                        Color="WhiteSmoke"
+                        Opacity="0.01"/>
+    </Window.Resources>
+        <Canvas  x:Name="canvas" MouseDown="Canvas_MouseDown" MouseMove="Canvas_MouseMove" MouseUp="Canvas_MouseUp" Background="Transparent"  >
+            <Path  Fill="red"  x:Name="path" >
+                <Path.Data>
+                    <CombinedGeometry GeometryCombineMode="Exclude">
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry x:Name="screenRect" />
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <RectangleGeometry x:Name="selectRect" />
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+            </Path>
+        <TextBlock VerticalAlignment="Bottom"  HorizontalAlignment="Right" x:Name="txtMouseLocation" Background="Blue" Foreground="LightGoldenrodYellow"></TextBlock>
+    </Canvas>
+</Window>
